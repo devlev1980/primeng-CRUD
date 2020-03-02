@@ -1,0 +1,23 @@
+header.header{
+  width: 100%;
+  background:#011627 ;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 10rem;
+
+  nav{
+    ul{
+      max-width: 300px;
+      width: 100%;
+      display: flex;
+      li{
+        margin-right: 10rem;
+        a{
+          color: #fff;
+        }
+      }
+    }
+  }
+
+}

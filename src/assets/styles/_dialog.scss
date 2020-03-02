@@ -1,0 +1,19 @@
+.ui-dialog.yes-no {
+  width: 400rem;
+
+  @media (max-width: 425px) {
+    width: 300rem;
+  }
+}
+
+.ui-dialog-wrapper {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.ui-dialog-content {
+  label {
+    min-width: 80px !important;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+}

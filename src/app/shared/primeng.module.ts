@@ -24,7 +24,8 @@ import { DragDropModule } from 'primeng/dragdrop'; // <div pDraggable="" dragHan
 import { DropdownModule } from 'primeng/dropdown'; // <p-drowdown>
 import { EditorModule } from 'primeng/editor'; // <p-editor> Based on Quill
 import { FieldsetModule } from 'primeng/fieldset'; // <p-fieldset>
-import { FileUploadModule } from 'primeng/fileupload'; // <p-fileUpload>
+import { FileUploadModule } from 'primeng/fileupload';
+import {TableModule} from 'primeng'; // <p-fileUpload>
 
 @NgModule({
     declarations: [],
@@ -54,6 +55,7 @@ import { FileUploadModule } from 'primeng/fileupload'; // <p-fileUpload>
         EditorModule,
         FieldsetModule,
         FileUploadModule,
+        TableModule
     ],
     exports: [
         AccordionModule,
@@ -80,6 +82,7 @@ import { FileUploadModule } from 'primeng/fileupload'; // <p-fileUpload>
         EditorModule,
         FieldsetModule,
         FileUploadModule,
+        TableModule
     ]
 })
 export class PrimengModule {

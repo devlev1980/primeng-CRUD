@@ -1,0 +1,29 @@
+<p-dialog (onHide)="onCloseDialog(display)" [(visible)]="display">
+    <p-header>
+        Add User
+    </p-header>
+    <form [formGroup]="userForm">
+        <div class="name"><label for="name">Name</label>
+            <input formControlName="name" id="name" pInputText type="text"/>
+        </div>
+
+        <div class="username"><label for="username">Username</label>
+            <input formControlName="username" id="username" pInputText type="text"/>
+        </div>
+
+        <div class="email"><label for="email">Email</label>
+            <input formControlName="email" id="email" pInputText type="text"/>
+        </div>
+
+        <div class="phone"><label for="phone">Phone</label>
+            <input formControlName="phone" id="phone" pInputText type="text"/>
+        </div>
+
+
+    </form>
+    <p-footer>
+        <button (click)="onEditUser(userForm.value,$event)"  class="ui-button-success" label="Yes" pButton type="submit"></button>
+        <button (click)="display=false"  class="ui-button-danger" label="Cancel" pButton type="button"></button>
+    </p-footer>
+</p-dialog>
+

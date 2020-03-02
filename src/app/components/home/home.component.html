@@ -1,1 +1,64 @@
-<p>home works!</p>
+<div class="container">
+    <button (click)="onAddUser()" class="ui-button-rounded" label="Add user" pButton type="button"></button>
+
+    <p-table [columns]="cols" [paginator]="true" [responsive]="true" [rows]="5" [value]="users">
+        <ng-template pTemplate="caption">
+            List of Users
+        </ng-template>
+        <ng-template let-columns pTemplate="header">
+            <tr>
+                <th *ngFor="let col of columns">
+                    {{col.header}}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template [pEditableRow]="true" let-columns="columns" let-ri="rowIndex" let-rowData
+                     pTemplate="body">
+
+            <tr>
+                <td *ngFor="let col of columns">
+                    <span class="ui-column-title">{{col.header}}</span>
+                    <!--                    <span pEditableColumn>{{rowData[col.field]}}</span>-->
+                    <span>{{rowData[col.field]}}</span>
+
+                    <button (click)="onSelectRow(rowData)" *ngIf="col.field === 'actions'" class="ui-button-info"
+                            icon="pi pi-pencil" pButton
+                            type="button">
+                    </button>
+                    <button (click)="onDeleteRow(rowData)" *ngIf="col.field === 'actions'" class="ui-button-danger"
+                            icon="pi pi-trash" pButton
+                            type="button">
+                    </button>
+
+                </td>
+
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            There are {{users?.length}} users
+        </ng-template>
+    </p-table>
+</div>
+
+<app-add-user (addUserEmitter)="onAddUserEmitter($event)"
+              (closeDialogEmitter)="onCloseAddUserDialog($event)"
+              *ngIf="showAddUserDialog"
+              [display]="showAddUserDialog">
+
+</app-add-user>
+
+<app-edit-user (closeDialogEmitter)="onCloseEditDialog($event)"
+               (yesDialogEmitter)="onYesDialog($event)"
+               *ngIf="showEditUserDialog" [display]="showEditUserDialog"
+               [selectedUser]="selectedUser">
+</app-edit-user>
+
+<app-yes-no (closeDialogEmitter)="onCloseDeleteUserDialog($event)"
+            (yesDialogEmitter)="onDeleteUser($event)"
+            *ngIf="showYesNoDialog"
+            [display]="showYesNoDialog"
+            [selectedUser]="selectedUser" class="yes-no-dialog">
+</app-yes-no>
+
+

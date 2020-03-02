@@ -1,0 +1,14 @@
+<p-dialog (onHide)="onCloseDialog(display)" [(visible)]="display" [styleClass]="'yes-no'">
+    <p-header>
+        Delete User
+    </p-header>
+
+      <div class="content">
+          {{selectedUser?.name}}
+      </div>
+
+    <p-footer>
+        <button (click)="onYes()"  class="ui-button-success" label="Yes" pButton type="submit"></button>
+        <button (click)="display=false"  class="ui-button-danger" label="Cancel" pButton type="button"></button>
+    </p-footer>
+</p-dialog>
